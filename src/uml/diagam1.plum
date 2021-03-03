@@ -1,0 +1,37 @@
+@startuml
+actor "Користувач" as User
+    actor "Гість" as Guest
+    actor "Адміністратор" as Admin
+    actor "Аналітик" as Analyst
+    
+    
+    User <|-- Admin
+    User <|-- Analyst
+    Guest <|-- User
+
+    usecase "Реєстрація" as SE_1
+
+    usecase "Авторизація" as SE_2
+    usecase "Створення замовлення" as SE_3
+    usecase "Робота з результатами" as SE_4 #eeffee
+
+    usecase "Робота із сховищем" as SE_5 #eeffee
+    usecase "Оформлення звіту" as SE_6 #eeffee
+    usecase "Перегляд замовлень" as SE_7
+
+    usecase "Налаштування підсистеми\nзбору інформації" as SE_8 #eeffee
+   
+    
+    
+    Guest -u-> SE_1
+
+    User -u-> SE_2
+    User -u-> SE_3
+    User -u-> SE_4
+    
+    Analyst --> SE_5
+    Analyst --> SE_6
+    Analyst --> SE_7
+
+    Admin --> SE_8
+@enduml
